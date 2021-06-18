@@ -1,3 +1,6 @@
+#stackoverflow answer reference , thanks Sebastian :D
+#https://stackoverflow.com/questions/51679363/multi-module-maven-project-on-dockers
+
 # cache as most as possible in this multistage dockerfile.
 FROM maven:3.6-alpine as DEPS
 
@@ -8,20 +11,20 @@ COPY infrastructure/pom.xml infrastructure/pom.xml
 COPY shared/pom.xml shared/pom.xml
 
 COPY pom.xml .
-#RUN mvn -B -e -C org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline
+
+RUN mvn -B -e -C org.apache.maven.plugins:maven-dependency-plugin:3.2.0:go-offline -DexcludeArtifactIds=com.example
 
 FROM maven:3.8.1-jdk-11 as BUILDER
 WORKDIR /app
-#COPY --from=deps /root/.m2 /root/.m2
+
+COPY --from=deps /root/.m2 /root/.m2
 COPY --from=deps /app/ /app
 COPY api/src /app/api/src
 COPY domain/src /app/domain/src
 COPY infrastructure/src /app/infrastructure/src
 COPY shared/src /app/shared/src
 
-# use -o (--offline) if you didn't need to exclude artifacts.
-# if you have excluded artifacts, then remove -o flag
-RUN mvn package -DskipTests=true
+RUN mvn -B -e package -DskipTests=true
 
 # At this point, BUILDER stage should have your .jar or whatever in some path
 FROM openjdk:11
