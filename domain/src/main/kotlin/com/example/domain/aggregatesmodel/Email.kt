@@ -11,8 +11,7 @@ import javax.validation.constraints.Size
 
 
 @Entity
-public class Email
-{
+public class Email {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO) Postgres
     @GenericGenerator(name = "generator", strategy = "uuid2", parameters = [])
@@ -25,8 +24,7 @@ public class Email
     @CreatedDate
     private var createdAt: Instant
 
-    constructor(action: String)
-    {
+    constructor(action: String) {
         this.action = action
         this.createdAt = Instant.now()
     }

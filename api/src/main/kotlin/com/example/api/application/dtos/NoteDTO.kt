@@ -20,8 +20,7 @@ class NoteDTO{
             return dto
         }
 
-        fun fromNotes(notes: List<Note>): List<NoteDTO>
-        {
+        fun fromNotes(notes: List<Note>): List<NoteDTO> {
             return notes.map {
                 val dto = NoteDTO()
                 //dto.userId = it.userId.toString() // postgres

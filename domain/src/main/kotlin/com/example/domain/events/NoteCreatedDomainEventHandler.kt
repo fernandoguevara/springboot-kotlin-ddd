@@ -18,8 +18,7 @@ class NoteCreatedDomainEventHandler(
 
     @Async
     @TransactionalEventListener
-    fun handle(event: NoteCreatedDomainEvent)
-    {
+    fun handle(event: NoteCreatedDomainEvent) {
         logger.info("Note with Id: ${event.Note.id} has been successfully created, sending email")
         val email =  identity.getUserEmail()
         //emailService.sendEmail(email, "Note Created", "You've created a new Note!");

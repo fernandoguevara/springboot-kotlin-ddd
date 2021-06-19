@@ -23,8 +23,7 @@ class ReportService(
     @Value("\${spring.mail.reportemail}")
     private val reportEmail: String = ""
 
-    override fun createNotesReport()
-    {
+    override fun createNotesReport() {
         val formatter = SimpleDateFormat("yyyy-MM-dd-HH-mm")
         val now = Date.from(Instant.now())
         val fileName = formatter.format(now) + ".xlsx"
@@ -42,8 +41,7 @@ class ReportService(
     }
 
     //imagine this method creates a xlsx file...
-    private fun createExcelFile()
-    {
+    private fun createExcelFile() {
         TODO("im sorry, i need to do this part...")
     }
 }

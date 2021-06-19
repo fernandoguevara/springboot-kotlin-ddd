@@ -13,8 +13,7 @@ import javax.persistence.*
 
 
 @Entity
-public class Note : AbstractAggregateRoot<Note>
-{
+public class Note : AbstractAggregateRoot<Note> {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO) Postgres
     @GenericGenerator(name = "generator", strategy = "uuid2", parameters = [])
@@ -48,8 +47,7 @@ public class Note : AbstractAggregateRoot<Note>
 
     //val emails get() = _emails.toList()
 
-    constructor(userId: UUID, title: String, description: String)
-    {
+    constructor(userId: UUID, title: String, description: String) {
         this.userId = userId
         this.title = title
         this.description = description
@@ -60,15 +58,13 @@ public class Note : AbstractAggregateRoot<Note>
         this.modifiedAt = now
     }
 
-    public fun addEmail(action: String)
-    {
+    public fun addEmail(action: String) {
         val email = Email(action)
         this.emails.add(email)
         registerEvent(NoteCreatedDomainEvent(this))
     }
 
-    public fun update(title: String, description: String)
-    {
+    public fun update(title: String, description: String) {
         this.title = title
         this.description = description
     }

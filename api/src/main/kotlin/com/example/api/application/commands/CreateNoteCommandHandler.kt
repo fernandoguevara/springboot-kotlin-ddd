@@ -15,12 +15,10 @@ import java.util.*
 class CreateNoteCommandHandler(
     private val noteRepository: INoteRepository,
     private val identity: IIdentityService
-) : Command.Handler<CreateNoteCommand, NoteDTO>
-{
+) : Command.Handler<CreateNoteCommand, NoteDTO> {
     private val logger: Logger = LoggerFactory.getLogger(CreateNoteCommandHandler::class.java)
 
-    override fun handle(command: CreateNoteCommand): NoteDTO
-    {
+    override fun handle(command: CreateNoteCommand): NoteDTO {
         //val userId = UUID.randomUUID()
         val userId = UUID.fromString(identity.getUserIdentity())
         val note = Note(userId, command.title, command.description)

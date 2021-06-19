@@ -24,8 +24,7 @@ class EmailService(
     @Value("\${spring.mail.email}")
     private lateinit var from: String
 
-    override fun sendEmail(to: String, subject: String, message: String)
-    {
+    override fun sendEmail(to: String, subject: String, message: String) {
         val email = SimpleMailMessage()
         email.setFrom(from)
         email.setTo(to)
@@ -34,8 +33,7 @@ class EmailService(
         emailSender.send(email);
     }
 
-    override fun sendEmail(to: String, subject: String, message: String, fileName: String)
-    {
+    override fun sendEmail(to: String, subject: String, message: String, fileName: String) {
         val path: Path = Paths.get(fileName)
         val content: ByteArray = Files.readAllBytes(path)
 

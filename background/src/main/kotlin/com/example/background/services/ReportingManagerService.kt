@@ -17,8 +17,7 @@ class ReportingManagerService(
 
     //i think it means every day at 7 am
     @Scheduled(cron = "* 0 7 * * *")
-    fun reportCurrentTime()
-    {
+    fun reportCurrentTime() {
         logger.info("Notes Report is starting.")
         reportService.createNotesReport()
         logger.info("Notes Report created.")

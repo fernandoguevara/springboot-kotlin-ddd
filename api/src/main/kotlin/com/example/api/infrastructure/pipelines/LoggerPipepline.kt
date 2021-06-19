@@ -9,8 +9,7 @@ import org.slf4j.Logger;
 
 @Component
 @Order(1)
-class LoggerPipepline : Middleware
-{
+class LoggerPipepline : Middleware {
     private val logger: Logger = LoggerFactory.getLogger(LoggerPipepline::class.java)
 
     override fun <R, C : Command<R>?> invoke(
