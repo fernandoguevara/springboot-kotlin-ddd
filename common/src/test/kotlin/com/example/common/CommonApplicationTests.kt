@@ -1,10 +1,10 @@
-package com.example.shared
+package com.example.common
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SharedApplicationTests {
+class CommonApplicationTests {
 
 	@Test
 	fun contextLoads() {

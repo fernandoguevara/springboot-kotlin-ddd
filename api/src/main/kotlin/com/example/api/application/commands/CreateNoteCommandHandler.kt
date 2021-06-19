@@ -4,7 +4,7 @@ import an.awesome.pipelinr.Command
 import com.example.api.application.dtos.NoteDTO
 import com.example.domain.aggregatesmodel.Note
 import com.example.infrastructure.repositories.INoteRepository
-import com.example.shared.services.IIdentityService
+import com.example.common.identity.IIdentityService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component

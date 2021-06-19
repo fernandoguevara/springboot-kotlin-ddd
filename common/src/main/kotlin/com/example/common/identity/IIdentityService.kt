@@ -1,4 +1,4 @@
-package com.example.shared.services
+package com.example.common.identity
 
 interface IIdentityService {
 

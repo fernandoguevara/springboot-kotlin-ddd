@@ -1,10 +1,8 @@
-package com.example.shared.services
+package com.example.common.identity
 
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken
 import org.keycloak.representations.AccessToken
 import org.springframework.stereotype.Service
-import org.springframework.web.context.request.NativeWebRequest
-import org.springframework.web.context.request.RequestContextHolder
 import javax.servlet.http.HttpServletRequest
 
 

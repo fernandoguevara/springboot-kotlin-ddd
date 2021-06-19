@@ -12,7 +12,7 @@
         <module>api</module>
         <module>domain</module>
         <module>infrastructure</module>
-        <module>shared</module>
+        <module>common</module>
     </modules>
 
 </project>

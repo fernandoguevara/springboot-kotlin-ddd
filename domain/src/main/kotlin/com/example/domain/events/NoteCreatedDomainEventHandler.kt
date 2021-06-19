@@ -1,7 +1,7 @@
 package com.example.domain.events
 
 import com.example.api.application.services.IEmailService
-import com.example.shared.services.IIdentityService
+import com.example.common.identity.IIdentityService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async

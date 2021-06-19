@@ -1,6 +1,6 @@
-package com.example.api.application.services
+package com.example.common.email
 
-import org.springframework.beans.factory.annotation.Autowired
+import com.example.api.application.services.IEmailService
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.mail.SimpleMailMessage
 import org.springframework.mail.javamail.JavaMailSender
