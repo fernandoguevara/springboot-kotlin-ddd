@@ -25,13 +25,9 @@ public class Note : AbstractAggregateRoot<Note> {
     var userId: UUID? = null
         private set
 
-    //@NotBlank(message = "title is mandatory")
-    //@Size(min = 5, max = 100)
     var title: String
         private set
 
-    //@NotBlank(message = "description is mandatory")
-    //@Size(min = 5, max = 200)
     var description: String
         private set
 

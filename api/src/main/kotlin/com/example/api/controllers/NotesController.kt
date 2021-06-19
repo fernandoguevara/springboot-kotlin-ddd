@@ -44,7 +44,7 @@ public class NotesController(
 
     @PreAuthorize("hasRole('admin')")
     @PutMapping("/{noteId}")
-    fun updateNote(@RequestBody request: UpdateNoteRequest, @RequestParam noteId: String): ResponseEntity<Any> {
+    fun updateNote(@RequestBody @Valid request: UpdateNoteRequest, @RequestParam noteId: String): ResponseEntity<Any> {
         val note = noteRepository.getNote(noteId)
         note.update(request.title, request.description)
         noteRepository.save(note)
