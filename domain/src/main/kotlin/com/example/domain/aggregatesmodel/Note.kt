@@ -1,15 +1,15 @@
 package com.example.domain.aggregatesmodel
 
 import com.example.domain.events.NoteCreatedDomainEvent
+import com.example.domain.exceptions.NoteDomainException
 import org.hibernate.annotations.GenericGenerator
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.domain.AbstractAggregateRoot
 import java.time.Instant
+import java.time.ZoneOffset
 import java.util.*
 import javax.persistence.*
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Size
 
 
 @Entity
@@ -53,8 +53,11 @@ public class Note : AbstractAggregateRoot<Note>
         this.userId = userId
         this.title = title
         this.description = description
-        this.createdAt = Instant.now()
-        this.modifiedAt = Instant.now()
+
+        val now = Instant.now()
+        if (IsTooLate(now)) throw NoteDomainException("Its too late go back to sleep :(");
+        this.createdAt = now
+        this.modifiedAt = now
     }
 
     public fun addEmail(action: String)
@@ -68,5 +71,10 @@ public class Note : AbstractAggregateRoot<Note>
     {
         this.title = title
         this.description = description
+    }
+
+    private fun IsTooLate(now: Instant): Boolean {
+        val hour = now.atZone(ZoneOffset.UTC).hour
+        return hour in 12..6
     }
 }
