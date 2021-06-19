@@ -22,7 +22,7 @@ class NoteCreatedDomainEventHandler(
     {
         logger.info("Note with Id: ${event.Note.id} has been successfully created, sending email")
         val email =  identity.getUserEmail()
-        //emailService.sendEmail("hobak28021@awinceo.com", "Note Created", "You've created a new Note!");
+        //emailService.sendEmail(email, "Note Created", "You've created a new Note!");
         logger.info("Email Sent for Note: ${event.Note.id}")
     }
 

@@ -1,4 +1,4 @@
-package com.example.api.config
+package com.example.common.email
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean

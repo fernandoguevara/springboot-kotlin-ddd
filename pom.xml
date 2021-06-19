@@ -13,6 +13,7 @@
         <module>domain</module>
         <module>infrastructure</module>
         <module>common</module>
+        <module>background</module>
     </modules>
 
 </project>
