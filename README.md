@@ -21,7 +21,7 @@ The use case its just a simple web api who saves notes in a db and send some ema
 * Dockerfile to create Docker Images
 * Swagger Implicit Authentication with Keycloak
 
-## Usage
+## How to Run
 Basically you need to create a database(sql server or postgres), keycloak, elasticsearch , kibana if you want data visualization and of course run the project or create and run a docker image.
 
 You can use the Vagrantfile if you use Vagrant in your machine, its nice and easy to use for demo projects, the vm will need at least 3-4GB RAM if you intend to use kibana and elasticsearch.
